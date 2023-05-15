@@ -9,3 +9,7 @@ if __name__ == "__main__":
 
     for bicycle in bicycles:
         print(f"Bicycle : {bicycle.__str__()}")
+
+    elements = bicycles[1:3]
+    for bicycle2 in elements:
+        print(bicycle2)

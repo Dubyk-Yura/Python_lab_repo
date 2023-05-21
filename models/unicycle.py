@@ -35,7 +35,8 @@ class Unicycle(AbstractBicycle):
         self.wheel_radius = wheel_radius
         super().__init__(bike_brand, current_speed, max_speed)
 
-    def get_max_distance(self):
+    @staticmethod
+    def get_max_distance():
         """
         Get the maximum distance the unicycle can travel.
 

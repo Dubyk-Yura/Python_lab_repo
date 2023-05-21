@@ -60,14 +60,15 @@ class Bicycle(AbstractBicycle):
         self.current_speed = 0
         print(f"bike {self.bike_brand} was stopped;")
 
-    def increase_price(self, price):
+    @classmethod
+    def increase_price(cls, price):
         """
         Increase the price of the bicycle.
 
         Args:
             price (int): The price to increase.
         """
-        price += self.BIKE_PRICE
+        price += cls.BIKE_PRICE
         print(f"Price of bicycle after increase is {price}")
 
     def __str__(self):
@@ -79,11 +80,12 @@ class Bicycle(AbstractBicycle):
         """
         return f"Bike type - {self.bike_type}, {super().__str__()}"
 
-    def get_max_distance(self):
+    @staticmethod
+    def get_max_distance():
         """
         Get the maximum distance the bicycle can travel.
 
-            Returns:
-                int: The maximum distance the bicycle can travel.
+        Returns:
+            int: The maximum distance the bicycle can travel.
         """
         return sys.maxsize

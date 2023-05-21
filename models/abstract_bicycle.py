@@ -29,8 +29,9 @@ class AbstractBicycle(ABC):
         self.current_speed = current_speed
         self.max_speed = max_speed
 
+    @staticmethod
     @abstractmethod
-    def get_max_distance(self):
+    def get_max_distance():
         """
         Get the maximum distance the bicycle can travel.
 

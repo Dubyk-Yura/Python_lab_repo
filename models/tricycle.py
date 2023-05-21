@@ -35,7 +35,8 @@ class Tricycle(AbstractBicycle):
         self.with_trunk = with_trunk
         super().__init__(bike_brand, current_speed, max_speed)
 
-    def get_max_distance(self):
+    @staticmethod
+    def get_max_distance():
         """
         Get the maximum distance the tricycle can travel.
 

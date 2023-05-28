@@ -28,6 +28,7 @@ class AbstractBicycle(ABC):
         self.bike_brand = bike_brand
         self.current_speed = current_speed
         self.max_speed = max_speed
+        self.best_shops = set()
 
     @staticmethod
     @abstractmethod
@@ -39,7 +40,6 @@ class AbstractBicycle(ABC):
             float: The maximum distance the bicycle can travel.
 
         """
-        pass
 
     def __str__(self):
         """
@@ -49,5 +49,11 @@ class AbstractBicycle(ABC):
             str: The string representation of the bicycle.
 
         """
-        return f", Bike brand = {self.bike_brand}, Current speed = {self.current_speed}," \
+        return f" Bike brand = {self.bike_brand}, Current speed = {self.current_speed}," \
                f" Bike max speed = {self.max_speed}"
+
+    def keys_and_values(self, type_of_elements):
+        return {key: value for key, value in self.__dict__.items() if isinstance(value, type_of_elements)}
+
+    def __iter__(self):
+        return iter(self.best_shops)

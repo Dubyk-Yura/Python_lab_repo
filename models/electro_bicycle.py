@@ -33,6 +33,7 @@ class ElectroBicycle(AbstractBicycle):
         """
         self.bike_consumption_per_100m = bike_consumption_per_100m
         self.bike_battery_capacity = bike_battery_capacity
+        self.best_shops = {"veloGO", "bikeGO"}
         super().__init__(bike_brand, current_speed, max_speed)
 
     def get_max_distance(self):

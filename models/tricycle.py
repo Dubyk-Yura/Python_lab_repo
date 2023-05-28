@@ -33,6 +33,7 @@ class Tricycle(AbstractBicycle):
         """
         self.rare_wheel_distance = rare_wheel_distance
         self.with_trunk = with_trunk
+        self.best_shops = {"velo bike", "МTB STOCK"}
         super().__init__(bike_brand, current_speed, max_speed)
 
     @staticmethod

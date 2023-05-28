@@ -37,6 +37,7 @@ class Bicycle(AbstractBicycle):
             max_speed (float, optional): The maximum speed of the bicycle. Defaults to 0.
         """
         self.bike_type = bike_type
+        self.best_shops = {"velo shop", "bike shop"}
         super().__init__(bike_brand, current_speed, max_speed)
 
     def accelerate(self, speed):
@@ -78,7 +79,7 @@ class Bicycle(AbstractBicycle):
         Returns:
             str: The string representation of the bicycle.
         """
-        return f"Bike type - {self.bike_type}, {super().__str__()}"
+        return f'Bike type - {self.bike_type}, {super().__str__()}'
 
     @staticmethod
     def get_max_distance():

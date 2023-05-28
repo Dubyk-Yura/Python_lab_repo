@@ -33,6 +33,7 @@ class Unicycle(AbstractBicycle):
         """
         self.seat_lift_height_in_meter = seat_lift_height_in_meter
         self.wheel_radius = wheel_radius
+        self.best_shops = {"velo planeta ", "velo sklad"}
         super().__init__(bike_brand, current_speed, max_speed)
 
     @staticmethod

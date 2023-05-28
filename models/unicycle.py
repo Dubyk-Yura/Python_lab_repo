@@ -1,3 +1,9 @@
+# pylint: disable=line-too-long
+"""
+The `models.unicycle` module provides a class representing a unicycle.
+
+"""
+# pylint: disable=import-error
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -18,6 +24,7 @@ class Unicycle(AbstractBicycle):
 
     """
 
+    # pylint: disable=too-many-arguments
     def __init__(self, seat_lift_height_in_meter=0, wheel_radius=0, bike_brand="no information",
                  current_speed=0, max_speed=0):
         """
@@ -33,8 +40,8 @@ class Unicycle(AbstractBicycle):
         """
         self.seat_lift_height_in_meter = seat_lift_height_in_meter
         self.wheel_radius = wheel_radius
-        self.best_shops = {"velo planeta ", "velo sklad"}
         super().__init__(bike_brand, current_speed, max_speed)
+        self.best_shops = {"velo planeta ", "velo sklad"}
 
     @staticmethod
     def get_max_distance():

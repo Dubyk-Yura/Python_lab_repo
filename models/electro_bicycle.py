@@ -1,3 +1,9 @@
+# pylint: disable=line-too-long
+"""
+The `models.electrobicycle` module provides a class representing an electric bicycle.
+
+"""
+# pylint: disable=import-error
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -18,6 +24,7 @@ class ElectroBicycle(AbstractBicycle):
 
         """
 
+    # pylint: disable=too-many-arguments
     def __init__(self, bike_battery_capacity=0, bike_consumption_per_100m=0, bike_brand="no information",
                  current_speed=0, max_speed=0):
         """
@@ -33,9 +40,11 @@ class ElectroBicycle(AbstractBicycle):
         """
         self.bike_consumption_per_100m = bike_consumption_per_100m
         self.bike_battery_capacity = bike_battery_capacity
-        self.best_shops = {"veloGO", "bikeGO"}
         super().__init__(bike_brand, current_speed, max_speed)
+        self.best_shops = {"veloGO", "bikeGO"}
+        # pylint: disable=no-else-return
 
+    # pylint: disable=arguments-differ
     def get_max_distance(self):
         """
         Get the maximum distance the electric bicycle can travel.

@@ -1,3 +1,9 @@
+# pylint: disable=line-too-long
+"""
+The `models.tricycle` module provides a class representing a tricycle.
+
+"""
+# pylint: disable=import-error
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -18,6 +24,7 @@ class Tricycle(AbstractBicycle):
 
     """
 
+    # pylint: disable=too-many-arguments
     def __init__(self, with_trunk=True, rare_wheel_distance=0, bike_brand="no information",
                  current_speed=0, max_speed=0):
         """
@@ -33,8 +40,8 @@ class Tricycle(AbstractBicycle):
         """
         self.rare_wheel_distance = rare_wheel_distance
         self.with_trunk = with_trunk
-        self.best_shops = {"velo bike", "МTB STOCK"}
         super().__init__(bike_brand, current_speed, max_speed)
+        self.best_shops = {"velo bike", "МTB STOCK"}
 
     @staticmethod
     def get_max_distance():

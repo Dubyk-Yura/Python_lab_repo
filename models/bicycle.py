@@ -1,5 +1,10 @@
-import sys
+# pylint: disable=line-too-long
+"""
+This module provides a class representing a Bicycle.
 
+"""
+import sys
+# pylint: disable=import-error
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -26,6 +31,7 @@ class Bicycle(AbstractBicycle):
     BIKE_PRICE = 10000
     instance = None
 
+    # pylint: disable=too-many-arguments
     def __init__(self, bike_type="no information", bike_brand="no information", current_speed=0, max_speed=0):
         """
         Initialize a Bicycle instance.
@@ -37,8 +43,8 @@ class Bicycle(AbstractBicycle):
             max_speed (float, optional): The maximum speed of the bicycle. Defaults to 0.
         """
         self.bike_type = bike_type
-        self.best_shops = {"velo shop", "bike shop"}
         super().__init__(bike_brand, current_speed, max_speed)
+        self.best_shops = {"velo shop", "bike shop"}
 
     def accelerate(self, speed):
         """
@@ -53,6 +59,7 @@ class Bicycle(AbstractBicycle):
         self.current_speed += speed
         print(f"Current speed is changed and it equal to {self.current_speed}")
 
+    # pylint: disable=attribute-defined-outside-init
     def brake(self):
         """
         Stop the bicycle.

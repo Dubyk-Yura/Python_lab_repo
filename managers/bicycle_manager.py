@@ -104,6 +104,7 @@ class BicycleManager:
         return [f"Max distance of [{bicycle6}] is {max_distance}" for bicycle6, max_distance in
                 zip(self.bicycles, list_max_distances)]
 
+    # pylint: disable=use-dict-literal
     def check_objects(self, conditions):
         """
         Check the conditions on all bicycles in the manager.
@@ -115,6 +116,6 @@ class BicycleManager:
             dict: Dictionary with 'all' and 'any' keys indicating if all or any bicycles satisfy the conditions.
         """
 
-        result = {'all': all(conditions(obj) for obj in self.bicycles),
-                  'any': any(conditions(obj) for obj in self.bicycles)}
+        result = dict(all=all(conditions(obj) for obj in self.bicycles),
+                      any=any(conditions(obj) for obj in self.bicycles))
         return result

@@ -11,6 +11,7 @@ The module also showcases the usage of decorators 'return_name' and 'from_iter_t
 from decorators import return_name
 from decorators import from_iter_to_tuple
 from managers.bicycle_manager import BicycleManager
+from managers.set_manager import SetManager
 from models.bicycle import Bicycle
 from models.electro_bicycle import ElectroBicycle
 from models.tricycle import Tricycle
@@ -78,3 +79,11 @@ if __name__ == "__main__":
 
 
     print(list_func())
+
+    list_ = [0, 1, 2, 3, 4]
+    print(next(iter(list_)))
+
+    set_manager = SetManager(bicycles_manager)
+
+    for bicycle in set_manager:
+        print(bicycle)

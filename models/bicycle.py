@@ -1,5 +1,10 @@
-import sys
+# pylint: disable=line-too-long
+"""
+This module provides a class representing a Bicycle.
 
+"""
+import sys
+# pylint: disable=import-error
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -26,6 +31,7 @@ class Bicycle(AbstractBicycle):
     BIKE_PRICE = 10000
     instance = None
 
+    # pylint: disable=too-many-arguments
     def __init__(self, bike_type="no information", bike_brand="no information", current_speed=0, max_speed=0):
         """
         Initialize a Bicycle instance.
@@ -38,6 +44,7 @@ class Bicycle(AbstractBicycle):
         """
         self.bike_type = bike_type
         super().__init__(bike_brand, current_speed, max_speed)
+        self.best_shops = {"velo shop", "bike shop"}
 
     def accelerate(self, speed):
         """
@@ -52,6 +59,7 @@ class Bicycle(AbstractBicycle):
         self.current_speed += speed
         print(f"Current speed is changed and it equal to {self.current_speed}")
 
+    # pylint: disable=attribute-defined-outside-init
     def brake(self):
         """
         Stop the bicycle.
@@ -78,7 +86,7 @@ class Bicycle(AbstractBicycle):
         Returns:
             str: The string representation of the bicycle.
         """
-        return f"Bike type - {self.bike_type}, {super().__str__()}"
+        return f'Bike type - {self.bike_type}, {super().__str__()}'
 
     @staticmethod
     def get_max_distance():

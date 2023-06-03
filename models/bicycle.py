@@ -5,6 +5,7 @@ This module provides a class representing a Bicycle.
 """
 import sys
 # pylint: disable=import-error
+from exception import NegativeValue
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -76,6 +77,8 @@ class Bicycle(AbstractBicycle):
         Args:
             price (int): The price to increase.
         """
+        if price < 0:
+            raise NegativeValue("price")
         price += cls.BIKE_PRICE
         print(f"Price of bicycle after increase is {price}")
 

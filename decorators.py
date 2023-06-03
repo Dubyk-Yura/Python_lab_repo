@@ -1,7 +1,10 @@
+# pylint: disable=line-too-long
 """
 This module provides custom decorators for enhancing the functionality of functions.
 """
+from datetime import datetime
 import time
+import logging
 
 
 def from_iter_to_tuple(func):
@@ -44,3 +47,40 @@ def measure_time(func):
         return func(*args, **kwargs)
 
     return wrapper
+
+
+# pylint: disable=invalid-name
+def logged(exception, mode):
+    """
+    A decorator that logs exceptions raised by the decorated function.
+
+    Args:
+        exception (Exception): The exception class to be caught and logged.
+        mode (str): The logging mode, either "console" or "file".
+
+    Returns:
+        function: The decorated function.
+
+    Raises:
+        ValueError: If an invalid logging mode is provided.
+
+    """
+
+    def decorator(function):
+        def wrapper(*args, **kwargs):
+            try:
+                return function(*args, **kwargs)
+            except exception as e:
+                if mode == "console":
+                    logging.basicConfig(level=logging.INFO)
+                    logging.info(" Exception %s occurred in %s", e, function.__name__)
+                elif mode == "file":
+                    logging.basicConfig(level=logging.INFO, filename="logging.txt")
+                    logging.info(" Exception %s occurred in %s -> %s", e, function.__name__, datetime.now())
+                else:
+                    raise ValueError("You selected the wrong mode. Choose 'file' or 'console' mode") from e
+                return None
+
+        return wrapper
+
+    return decorator

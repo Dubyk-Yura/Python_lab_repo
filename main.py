@@ -8,7 +8,6 @@ the bicycles.
 The module also showcases the usage of decorators 'return_name' and 'from_iter_to_tuple'.
 """
 # pylint: disable=import-error
-from decorators import return_name
 from decorators import from_iter_to_tuple
 from managers.bicycle_manager import BicycleManager
 from managers.set_manager import SetManager
@@ -65,17 +64,9 @@ if __name__ == "__main__":
     print("Test decorators")
 
 
-    @return_name
-    def add_func(first_el, second_el):
-        return first_el + second_el
-
-
-    print(add_func(1, 2))
-
-
     @from_iter_to_tuple
     def list_func():
-        return [1, 3, 4, 56, 5, ]
+        return [1, 3, 4, 56, 5]
 
 
     print(list_func())
@@ -87,3 +78,6 @@ if __name__ == "__main__":
 
     for bicycle in set_manager:
         print(bicycle)
+
+    set_ = ElectroBicycle(0, 0, "Samsung", 0, 0)
+    print(set_.get_max_distance())

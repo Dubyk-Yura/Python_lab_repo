@@ -5,6 +5,8 @@ This module provides classes and functions related to bicycles.
 """
 from abc import ABC, abstractmethod
 
+from exception import NegativeValue
+
 
 class AbstractBicycle(ABC):
     """
@@ -35,6 +37,8 @@ class AbstractBicycle(ABC):
         self.bike_brand = bike_brand
         self.current_speed = current_speed
         self.max_speed = max_speed
+        if self.current_speed < 0 or self.max_speed < 0:
+            raise NegativeValue("current_speed or max_speed")
         self.best_shops = set()
 
     @staticmethod

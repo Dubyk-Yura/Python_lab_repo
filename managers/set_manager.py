@@ -15,6 +15,7 @@ Example:
     ...
 
 """
+from managers.bicycle_manager import BicycleManager
 
 
 class SetManager:
@@ -40,6 +41,8 @@ class SetManager:
         Args:
             bicycle_manager (BicycleManager): The bicycle manager object.
         """
+        if not isinstance(bicycle_manager, BicycleManager):
+            raise TypeError("field in constructor is no object of class BicycleManager")
         self.bicycle_manager = bicycle_manager
         self.current_index = 0
 
@@ -90,7 +93,7 @@ class SetManager:
             object: The next best shop.
 
         Raises:
-            StopIteration: If there are no more best shops to iterate over.
+            StopIteration: If there are no best shops to iterate over.
         """
         if self.current_index < len(self):
             item = self[self.current_index]

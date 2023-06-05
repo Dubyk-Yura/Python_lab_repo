@@ -4,6 +4,7 @@ The `models.unicycle` module provides a class representing a unicycle.
 
 """
 # pylint: disable=import-error
+from exception import NegativeValue
 from models.abstract_bicycle import AbstractBicycle
 
 
@@ -41,7 +42,9 @@ class Unicycle(AbstractBicycle):
         self.seat_lift_height_in_meter = seat_lift_height_in_meter
         self.wheel_radius = wheel_radius
         super().__init__(bike_brand, current_speed, max_speed)
-        self.best_shops = {"velo planeta ", "velo sklad"}
+        if self.seat_lift_height_in_meter < 0 or self.wheel_radius < 0:
+            raise NegativeValue("seat_lift_height_in_meter or wheel_radius")
+        self.best_shops = {"velo planet ", "velo sklad"}
 
     @staticmethod
     def get_max_distance():

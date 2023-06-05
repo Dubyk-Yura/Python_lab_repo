@@ -3,6 +3,7 @@
 The `models.tricycle` module provides a class representing a tricycle.
 
 """
+from exception import NegativeValue
 # pylint: disable=import-error
 from models.abstract_bicycle import AbstractBicycle
 
@@ -41,6 +42,8 @@ class Tricycle(AbstractBicycle):
         self.rare_wheel_distance = rare_wheel_distance
         self.with_trunk = with_trunk
         super().__init__(bike_brand, current_speed, max_speed)
+        if self.rare_wheel_distance < 0:
+            raise NegativeValue("rare_wheel_distance")
         self.best_shops = {"velo bike", "МTB STOCK"}
 
     @staticmethod
